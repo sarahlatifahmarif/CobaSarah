@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\TabelPilihanController;
 use App\Http\Controllers\MetodaController;
 Use App\Http\Controllers\ResultController;
+Use App\Http\Controllers\PertanyaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,12 @@ Route::post('select', [ResultController::class, 'storeSelect']);
 Route::get('criteria', [ResultController::class, 'criteria'])->name('criteria');
 Route::post('criteria', [ResultController::class, 'storeCriteria']);
 Route::get('result', [ResultController::class, 'result'])->name('result');
+
+
+
+Route::get('Pertanyaan', [PertanyaanController::class, 'index'])->name('Pertanyaan.index');
+Route::get('Pertanyaan/create', [PertanyaanController::class, 'create'])->name('Pertanyaan.create');
+Route::post('Pertanyaan/create', [PertanyaanController::class, 'store'])->name('Pertanyaan.store');
+Route::get('Pertanyaan/update/{id}', [PertanyaanController::class, 'edit'])->name('Pertanyaan.edit');
+Route::patch('Pertanyaan/update/{id}', [PertanyaanController::class, 'update'])->name('Pertanyaan.update');
+Route::delete('Pertanyaan/delete/{id}', [PertanyaanController::class, 'delete'])->name('Pertanyaan.delete');

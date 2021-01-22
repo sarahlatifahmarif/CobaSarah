@@ -58,6 +58,9 @@
                              <li class="nav-item">
                                     <a class="nav-link" href="{{ route('kriteria.index') }}">{{ __('kriteria') }}</a>
                                 </li>
+                             <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('Pertanyaan.index') }}">{{ __('Pertanyaan') }}</a>
+                                </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('jurusan.index') }}">{{ __('Jurusan') }}</a>
                                 </li>

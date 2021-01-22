@@ -31,6 +31,7 @@
                                     <input type="text" name="nama_prodi" id="nama_prodi" class="form-control" placeholder="{{ __('Masukan Nama Prodi') }}" value="{{ $prodi->nama_prodi }}" required>
                                 </div>
                             </div>
+                            
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
