@@ -16,22 +16,39 @@
             <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                
-                <div class="card-header ">
-                 <div class="row">
-                  <div class="col-md-4">
-                    <div class="">{{__('Jurusan')}}</div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="">{{__('Program Studi')}}</div>
-                  </div>
-                  </div>
-                  </div>
                     <div class="card body">
                         <form action="" method="post" style="margin:1em">
                             @csrf
-                            @foreach ($available as $item)
+                            <table>
+                              <head>
+                                <thead>
+                                  <th>Nama Jurusan</th>
+                                  <th>Prodi</th>
+                                </thead>
+                                <tbody>
+                                  @php
+                                      $before = '';
+                                  @endphp
+                                  @foreach ($available as $item)
+                                      <tr>
+                                        <td>{{ ($item->prodi->jurusan->nama_jurusan != $before) ?$item->prodi->jurusan->nama_jurusan : ''}}</td>
+                                        @php
+                                            $before = $item->prodi->jurusan->nama_jurusan;
+                                        @endphp
+                                        <td><div class="checkbox">
+                                          <label>
+                                              <input type="checkbox" name="id_prodi[]" value="{{$item->prodi_id}}"/>
+                                             {{$item->prodi->nama_prodi}}
+                                          </label>
+                                      </div></td>
+                                      </tr>
+                                  @endforeach
+                                </tbody>
+                              </head>
+                            </table>
+                            {{-- @foreach ($available as $item)
                                 <div class="row">
+                                  
                                     <div class="col-md-4 form-group">
                                         <h5 class=" card-title">{{ $item->prodi->jurusan->nama_jurusan }}</h5>
                                     </div>
@@ -45,7 +62,7 @@
                                     </div>
                                 </div>
                                 <br>
-                            @endforeach  
+                            @endforeach   --}}
                                 <hr>
                             <input type="submit" class="btn btn-primary" value="Proses">
                         </form>
